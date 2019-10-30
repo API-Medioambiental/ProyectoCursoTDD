@@ -3,7 +3,6 @@
 """
 Created on Wed Oct 30 13:41:46 2019
 """
-import pytest
 ### Clase que representa los datos de una determinada localización
 class Estacion:
     
@@ -15,11 +14,10 @@ class Estacion:
         self.estacion = estacion
         self.direccion = direccion
     
-    @pytest.fixture
     def aniadir_nuevos_indicadores(self, nuevos_indicadores):
-        if nuevos_indicadores.fecha_hora == none:
+        if nuevos_indicadores.fecha_hora == None:
             return 'Dato no valido'
-        else 
+        else: 
             self.indicadores.append(nuevos_indicadores)
             return 'Dato valido'
 
