@@ -2,4 +2,4 @@ install:
 	pipenv install --three
 
 test:
-	pipenv run python -m pytest test_dato.py
+	pipenv run python -m pytest tests/test_dato.py
