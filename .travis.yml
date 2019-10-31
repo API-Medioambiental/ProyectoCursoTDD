@@ -1,3 +1,8 @@
-language: minimal
-
-script: /bin/true
+language: python
+python: 
+    - "3.6"
+    - "3.7"
+before_install:
+  - pipenv install --three
+script: 
+  - pipenv run python -m pytest tests/test_estacion.py
