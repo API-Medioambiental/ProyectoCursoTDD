@@ -3,7 +3,7 @@
 """
 Created on Wed Oct 30 13:41:46 2019
 """
-from estadisticas import actualizar_estadisticas
+from estadisticas import Estadisticas
 import math
 
 ### Clase que representa los datos de una determinada localización
@@ -32,9 +32,9 @@ class Estacion:
     # exceptuando la fecha.
     # Cada fila tiene 5 columnas: la media de so2, part, no2, co, o3.
     def generar_estadisticas(self):
-        nuevas_estadisticas = actualizar_estadisticas(self.indicadores[:,1], 
-             self.indicadores[:,2], self.indicadores[:,3], self.indicadores[:,4],
-             self.indicadores[:,5])
+        nuevas_estadisticas = Estadisticas.actualizar_estadisticas(self.indicadores[:][1], 
+             self.indicadores[:][2], self.indicadores[:][3], self.indicadores[:][4],
+             self.indicadores[:][5])
         if (math.isnan(nuevas_estadisticas)):
             return 'Estadísticas incorrectas'
         else:
@@ -47,9 +47,9 @@ class Indicador:
     
     # Crear un dato
     def __init__(self, fecha_hora, so2, part, no2, co, o3):
+        self.fecha_hora = fecha_hora
         self.so2 = so2
         self.part = part
         self.no2 = no2
         self.co = co
         self.o3 = o3
-        self.fecha_hora = fecha_hora
