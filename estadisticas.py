@@ -15,13 +15,13 @@ class Estadisticas:
         self.co_media = co_media
         self.o3_media = o3_media
         
-    def actualizar_estadisticas(self, so2_datos, part_datos, no2_datos, co_datos, o3_datos):
-        self.so2_media = sum(so2_datos)/len(so2_datos)
-        self.n_medio_part = sum(part_datos)/len(part_datos)
-        self.no2_media = sum(no2_datos)/len(no2_datos)
-        self.co_media = sum(co_datos)/len(co_datos)
-        self.o3_media = sum(o3_datos)/len(o3_datos)
-        return [self.so2_media, self.n_medio_part, self.no2_media, self.co_media, self.o3_media]
+    def actualizar_estadisticas(self, indicadores):
+        self.so2_media = self.n_medio_part = self.no2_media = self.co_media = self.o3_media = 0
+        for indicador in range(len(indicadores)):
+            self.so2_media += indicadores[indicador].so2
+            self.n_medio_part += indicadores[indicador].part
+            self.no2_media += indicadores[indicador].no2
+            self.co_media += indicadores[indicador].no2
+            self.o3_media += indicadores[indicador].o3
         
-
-        
+        return Estadisticas(self.so2_media, self.n_medio_part, self.no2_media, self.co_media, self.o3_media)
