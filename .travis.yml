@@ -9,3 +9,7 @@ before_install:
 script: 
   - pipenv run python -m pytest tests/test_estacion.py
   - pipenv run python -m pytest --cov=estacion tests/
+env:
+  - CODECOV_TOKEN="314b1206-d8f4-4d52-b5de-a52460562bb4"
+after_success:
+  - codecov
